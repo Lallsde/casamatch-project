@@ -37,7 +37,7 @@ export default function Home() {
           
           <div className="w-full max-w-2xl mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 className="text-2xl font-bold mb-4">Cerca la tua casa ideale</h2>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label htmlFor="location" className="block text-gray-700 text-sm font-bold mb-2">
                   Località
@@ -77,13 +77,14 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((id) => (
                 <div key={id} className="bg-white shadow-md rounded-lg overflow-hidden">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Proprietà"
-                    width={300}
-                    height={200}
-                    className="w-full h-48 object-cover"
-                  />
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={`https://picsum.photos/seed/${id}/400/300`}
+                      alt={`Proprietà ${id}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="p-4">
                     <h3 className="text-xl font-semibold mb-2">Villa Moderna {id}</h3>
                     <p className="text-gray-600 mb-2">Milano</p>
