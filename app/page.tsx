@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 
 export default function Home() {
   return (
@@ -112,4 +111,15 @@ export default function Home() {
               <ul className="space-y-2">
                 <li><Link href="/ricerca" className="text-gray-400 hover:text-white">Ricerca Proprietà</Link></li>
                 <li><Link href="/aste" className="text-gray-400 hover:text-white">Aste Immobiliari</Link></li>
-                <li><Link href="/investimenti" className="text-gray-400 hover:text-white">Investimenti 
+                <li><Link href="/investimenti" className="text-gray-400 hover:text-white">Investimenti Frazionati</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+            <p>&copy; 2024 CasaMatch. Tutti i diritti riservati.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
