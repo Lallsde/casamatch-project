@@ -7,7 +7,6 @@ export default function Ricerca() {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    // Qui dovresti implementare la logica di ricerca reale
     setResults([
       { id: 1, title: 'Appartamento in centro', price: '€200,000' },
       { id: 2, title: 'Villa con piscina', price: '€500,000' },
