@@ -1,123 +1,77 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <nav className="bg-blue-600 text-white">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
-            CasaMatch
-          </Link>
-          <div className="space-x-4">
-            <Link href="/ricerca" className="hover:text-blue-200">
-              Ricerca
-            </Link>
-            <Link href="/aste" className="hover:text-blue-200">
-              Aste
-            </Link>
-            <Link href="/investimenti" className="hover:text-blue-200">
-              Investimenti
-            </Link>
-            <button className="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100">
-              Accedi
-            </button>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400">
-              Registrati
-            </button>
-          </div>
-        </div>
-      </nav>
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4">
+          Benvenuto su CasaMatch
+        </p>
+      </div>
 
-      <main className="flex-1">
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold mb-8">Benvenuto su CasaMatch</h1>
-          
-          <div className="w-full max-w-2xl mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 className="text-2xl font-bold mb-4">Cerca la tua casa ideale</h2>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="location" className="block text-gray-700 text-sm font-bold mb-2">
-                  Località
-                </label>
-                <input
-                  id="location"
-                  type="text"
-                  placeholder="Inserisci la località"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-              <div>
-                <label htmlFor="propertyType" className="block text-gray-700 text-sm font-bold mb-2">
-                  Tipo di proprietà
-                </label>
-                <select
-                  id="propertyType"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                >
-                  <option value="">Seleziona il tipo di proprietà</option>
-                  <option value="apartment">Appartamento</option>
-                  <option value="house">Casa</option>
-                  <option value="villa">Villa</option>
-                </select>
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-              >
-                Cerca
-              </button>
-            </form>
-          </div>
+      <div className="relative flex place-items-center">
+        <h1 className="text-4xl font-bold">CasaMatch</h1>
+      </div>
 
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold mb-6">Proprietà in Evidenza</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((id) => (
-                <div key={id} className="bg-white shadow-md rounded-lg overflow-hidden">
-                  <Image
-                    src={`https://source.unsplash.com/random/400x300?house&sig=${id}`}
-                    alt={`Proprietà ${id}`}
-                    width={400}
-                    height={300}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold mb-2">Villa Moderna {id}</h3>
-                    <p className="text-gray-600 mb-2">Milano</p>
-                    <p className="text-2xl font-bold text-blue-600">€500,000</p>
-                    <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Visualizza Dettagli
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </main>
+      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+        <a
+          href="/ricerca"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+        >
+          <h2 className="mb-3 text-2xl font-semibold">
+            Ricerca{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              →
+            </span>
+          </h2>
+          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            Trova la casa dei tuoi sogni.
+          </p>
+        </a>
 
-      <footer className="bg-gray-800 text-white mt-12">
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">CasaMatch</h3>
-              <p className="text-gray-400">Trova la casa dei tuoi sogni con CasaMatch</p>
-            </div>
-            <div>
-              <h4 className="text-md font-semibold mb-4">Servizi</h4>
-              <ul className="space-y-2">
-                <li><Link href="/ricerca" className="text-gray-400 hover:text-white">Ricerca Proprietà</Link></li>
-                <li><Link href="/aste" className="text-gray-400 hover:text-white">Aste Immobiliari</Link></li>
-                <li><Link href="/investimenti" className="text-gray-400 hover:text-white">Investimenti Frazionati</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>&copy; 2024 CasaMatch. Tutti i diritti riservati.</p>
-          </div>
-        </div>
-      </footer>
+        <a
+          href="/aste"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+        >
+          <h2 className="mb-3 text-2xl font-semibold">
+            Aste{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              →
+            </span>
+          </h2>
+          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            Scopri le migliori opportunità.
+          </p>
+        </a>
+
+        <a
+          href="/investimenti"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+        >
+          <h2 className="mb-3 text-2xl font-semibold">
+            Investimenti{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              →
+            </span>
+          </h2>
+          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            Investi nel tuo futuro.
+          </p>
+        </a>
+
+        <a
+          href="/contatti"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+        >
+          <h2 className="mb-3 text-2xl font-semibold">
+            Contatti{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              →
+            </span>
+          </h2>
+          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            Siamo qui per aiutarti.
+          </p>
+        </a>
+      </div>
     </div>
   )
 }
